@@ -6,14 +6,87 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/"> LOGO </a>
+
+            <div class="navbar-list">
+            <ul class="navbar-nav ml-auto">
+
+              <% if admin_signed_in? %>
+                <%= link_to "/items" do %>
+                  <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
+                <% end %>
+
+                <%= link_to "/admin/customers" do %>
+                  <button type="button" class="btn btn-outline-secondary"> 会員一覧 </button>
+                <% end %>
+
+                <%= link_to "/admin/orders/:id" do %>
+                  <button type="button" class="btn btn-outline-secondary"> 注文履歴一覧 </button>
+                <% end %>
+
+                <%= link_to "/admin/genres" do %>
+                  <button type="button" class="btn btn-outline-secondary"> ジャンル一覧 </button>
+                <% end %>
+
+                <%= link_to "/admin/sign_out" do %>
+                  <button type="button" class="btn btn-outline-secondary"> ログアウト </button>
+                <% end %>
+
+              <% else %>
+                <%= link_to "/about" do %>
+                  <button type="button" class="btn btn-outline-secondary"> About </button>
+                <% end %>
+
+                <%= link_to "/items" do %>
+                  <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
+                <% end %>
+
+                <%= link_to "/customers/sign_up" do %>
+                  <button type="button" class="btn btn-outline-secondary"> 新規登録 </button>
+                <% end %>
+
+                <%= link_to "/customers/sign_in" do %>
+                  <button type="button" class="btn btn-outline-secondary"> ログイン </button>
+                <% end %>
+
+              <% end %>
+
+              <%= form_tag "/" do %>
+              <div class="input-group">
+                <%= text_field_tag :search %>
+                <span class="input-group-btn">
+                  <%= button_tag "検索", class:"btn btn-primary" %>
+                </span>
+
+              <% end %>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
     </header>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRigth Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
