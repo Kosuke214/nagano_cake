@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="col-10 mx-auto">
+    <h2>商品詳細</h2>
+    <div class="container">
+      <div class="col-sm-12 col-md-10 col-lg-10 px-4 mx-auto ">
+
+
+        <div class="picture">
+          <div class="row">
+            <div class="col-4">
+              <%= image_tag @item.get_image %>
+            </div>
+            <div class="col-8">
+              <div class="item-group">
+                <div class="row">
+                  <label class="col-5">商品名</label>
+                  <div class="col-7">
+                    <%= @item.name %>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="item-group">
+                <div class="row">
+                  <label class="col-5">商品説明</label>
+                  <div class="col-7">
+                    <%= @item.introduction %>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="item-group">
+                <div class="row">
+                  <label class="col-5">ジャンル</label>
+                  <div class="col-7">
+                    <%= @item.genre_id %>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="item-group">
+                <div class="row">
+                  <label class="col-5">税抜価格</label>
+                  <div class="col-7">
+                    <%= @item.price %>
+                  </div>
+                  <p>円</p>
+                </div>
+              </div>
+      
+      
+              <div class="item-group">
+                <div class="row">
+                  <label class="col-5">販売ステータス</label>
+                  <div class="col-7">
+                    <div>
+                      <%= @item.is_active ? '販売中' : '販売停止中' %>
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="row justify-content-md-center">
+                <div class="col-10">
+                  <%= link_to "編集する", edit_admin_item_path, class: 'btn btn-success' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -3,7 +3,7 @@
     <h2>商品新規登録</h2>
     <div class="container">
       <div class="col-sm-12 col-md-10 col-lg-10 px-4 mx-auto ">
-        <%= form_with model: @item do |f| %>
+        <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
 
         <div class="form-group">
           <div class="row">
@@ -43,7 +43,7 @@
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">税込価格</label>
+            <label class="col-4">税抜価格</label>
             <div class="col-7">
               <%= f.text_field :price, :class => "form-control price-form", placeholder:"１０００" %>
             </div>
@@ -77,9 +77,8 @@
 
       </div>
     </div>
-    
+
   </div>
-  
+
 </div>
 
-    
