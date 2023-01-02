@@ -1,20 +1,31 @@
 Rails.application.routes.draw do
 
-  root to: "public/homes#top"
-
   devise_for :customers, controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: "public/sessions"
   }
 
-  devise_for :admin, controllers: {
+    devise_for :admin, controllers: {
   sessions: "admin/sessions"
   }
 
-  resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-  resources :oders, only: [:new, :comfirm, :complete, :create, :index, :show]
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  root to: "public/homes#top"
+  get"about" => "public/homes#about"
+
+  get "customers/my_page" => "public/customers#show"
+  get "customers/infomation/edit" => "public/customers#edit"
+  patch "customers/infomation" => "public/customers#update"
+  get "customers/unsubscribe" => "public/customers#unsubscribe"
+  patch "customers/withdraw" => "public/customers#withdraw"
+
+
+  scope module: :public do
+    resources :items, only: [:index, :show]
+
+    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :oders, only: [:new, :comfirm, :complete, :create, :index, :show]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  end
 
   get'/admin' => 'admin/homes#top'
 

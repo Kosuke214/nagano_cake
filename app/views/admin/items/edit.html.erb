@@ -4,8 +4,8 @@
     <div class="container">
       <div class="col-sm-12 col-md-10 col-lg-10 px-4 mx-auto ">
         <% #↓namespaceで分けているため、adminはurlを指定 %>
-        <%= form_with model: @item, url: admin_item_path, local: true do |f| %> 
-        
+        <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+
 
         <div class="form-group">
           <div class="row">
@@ -29,7 +29,7 @@
           <div class="row">
             <label class="col-4">商品説明</label>
             <div class="col-7">
-              <%= f.text_area :introduction, :class => "form-control introduction-form", placeholder:"ここに説明文を記述します" %>
+              <%= f.text_area :introduction, rows:'5', :class => "form-control introduction-form", placeholder:"ここに説明文を記述します" %>
             </div>
           </div>
         </div>

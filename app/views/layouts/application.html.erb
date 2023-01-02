@@ -40,8 +40,25 @@
                         <button type="button" class="btn btn-outline-secondary"> ジャンル一覧 </button>
                       <% end %>
 
-                      <%= link_to "/admin/sign_out" do %>
+                      <%= link_to "/admin/sign_out", method: :delete do %>
                         <button type="button" class="btn btn-outline-secondary"> ログアウト </button>
+                      <% end %>
+
+                    <% elsif customer_signed_in? %>
+                      <%= link_to "/customers/my_page" do %>
+                        <button type="button" class="btn btn-outline-secondary"> マイページ </button>
+                      <% end %>
+
+                      <%= link_to "/items" do %>
+                        <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
+                      <% end %>
+
+                      <%= link_to "/customers/cart_items" do %>
+                        <button type="button" class="btn btn-outline-secondary"> カート </button>
+                      <% end %>
+
+                      <%= link_to "/customers/sign_out", method: :delete do %>
+                        <button type="button" class="btn btn-outline-secondary" > ログアウト </button>
                       <% end %>
 
                     <% else %>

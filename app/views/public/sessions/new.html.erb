@@ -1,26 +1,53 @@
-<h2>Log in</h2>
+<%= form_with model: @customer, url: customer_session_path do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="container">
+    <div class="col-10 mx-auto">
+      <h2><span>ログイン</span></h2>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
+
+  <div class="container">
+    <div class="col-9 mx-auto">
+      <p><span>会員の方はこちらからログイン</span></p>
+
+      <div class="col-sm-11 mx-auto">
+
+        <div class="login-form">
+          <div class="row">
+            <label class="col-4">メールアドレス</label>
+            <div class="col-8">
+              <%= f.email_field :email, placeholder:"sample@example.com", size: 40 %>
+            </div>
+          </div>
+        </div>
+
+        <div class="login-form">
+          <div class="row">
+            <label class="col-4">パスワード</label>
+            <div class="col-8">
+              <%= f.password_field :password, size: 40 %>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="row">
+            <label class="col-4"></label>
+            <div class="col-8">
+              <%= f.submit "ログイン" ,class:'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p><span>会員登録がお済みでない方</span></p>
+      <p class="text-center"><%= link_to 'こちら',  new_customer_session_path %>から新規登録を行ってください。</p>
+
+    </div>
+
+  </div>
+
 <% end %>
 
-<%= render "public/shared/links" %>
+
+

@@ -31,13 +31,13 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
+      
       t.string :last_name
       t.string :first_name
       t.string :last_name_kana
       t.string :first_name_kana
       #t.string :email
-      t.string :encrypted_password
+      #t.string :encrypted_password
       t.string :postal_code
       t.string :address
       t.string :telephone_number
@@ -52,16 +52,6 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
     # add_index :customers, :confirmation_token,   unique: true
     # add_index :customers, :unlock_token,         unique: true
 
-    t.string :last_name
-    t.string :first_name
-    t.string :last_name_kana
-    t.string :first_name_kana
-    #t.string :email
-    t.string :encrypted_password
-    t.string :postal_code
-    t.string :address
-    t.string :telephone_number
-    t.boolean :is_deleted
-
+  
   end
 end
