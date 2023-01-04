@@ -8,7 +8,7 @@
   </div>
 
   <div class="container">
-    <div class="col-sm-12 mx-auto">
+    <div class="col-12 mx-auto">
 
       <div class="customer-form">
         <div class="row">
@@ -16,6 +16,7 @@
           <div class="col-3">
             <%= f.text_field :last_name %>
           </div>
+          <div class="col-1"></div>
           <div class="col-3">
             <%= f.text_field :first_name %>
           </div>
@@ -28,6 +29,7 @@
           <div class="col-3">
             <%= f.text_field :last_name_kana %>
           </div>
+          <div class="col-1"></div>
           <div class="col-3">
             <%= f.text_field :first_name_kana %>
           </div>
@@ -46,8 +48,8 @@
       <div class="customer-form">
         <div class="row">
           <label class="col-3">住所</label>
-          <div class="col-7">
-            <%= f.text_field :address, size: 55 %>
+          <div class="col-9">
+            <%= f.text_field :customer_address, style: "width:100%" %>
           </div>
         </div>
       </div>
@@ -78,7 +80,7 @@
           </div>
           <div class="col-2"></div>
           <div class="col-3">
-            <%= link_to "customers_unsubscribe_path" do %>
+            <%= link_to "/customers/unsubscribe" do %>
               <button type="button" class="btn btn-danger"> 退会する </button>
             <% end %>
           </div>

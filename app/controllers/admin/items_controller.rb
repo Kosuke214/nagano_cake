@@ -2,6 +2,7 @@ class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
     @pages = Item.page(params[:page])
+    @genre = {1 => "ケーキ", 2 => "プリン", 3 => "焼き菓子"}
     #@page = Article.all.page(params[:page]
   end
 
@@ -16,6 +17,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @genre = {1 => "ケーキ", 2 => "プリン", 3 => "焼き菓子"}
     #redirect_to :edit
   end
 

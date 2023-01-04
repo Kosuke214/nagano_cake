@@ -18,7 +18,7 @@
           <div class="row">
             <label class="col-4">商品名</label>
             <div class="col-7">
-              <%= f.text_field :name, :class => "form-control name-form", autofocus: true, autocomplete: "name", placeholder:"商品名" %>
+              <%= f.text_field :name, :class => "form-control name-form", autofocus: true, autocomplete: "name", placeholder:"商品名", style: "width:100%" %>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
           <div class="row">
             <label class="col-4">商品説明</label>
             <div class="col-7">
-              <%= f.text_area :introduction, rows:'5', :class => "form-control introduction-form", placeholder:"ここに説明文を記述します" %>
+              <%= f.text_area :introduction, rows:'5', :class => "form-control introduction-form", placeholder:"ここに説明文を記述します", style: "width:100%" %>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
           <div class="row">
             <label class="col-4">ジャンル</label>
             <div class="col-7">
-              <%= f.select :genre_id, [['--選択してくだいさい--',1],['ケーキ',2]], :class => "form-control genre-form" %>
+              <%= f.select :genre_id, [['--選択してくだいさい--', 0],['ケーキ', 1],['プリン', 2],['焼き菓子', 3]], :class => "form-control genre-form" %>
             </div>
           </div>
         </div>

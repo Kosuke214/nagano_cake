@@ -1,5 +1,40 @@
+/*↑リセットCSS sanitize.cssをnpm install*/
+
+main {
+  margin: 10px;
+}
+
 span {
   background-color: lightgray;
   padding: 0px 20px;
 
 }
+
+th,td {
+  padding: 10px 30px 10px 5px;
+}
+
+.border-bottom {
+  border-bottom: solid 1px;
+}
+
+th {
+  background-color: whitesmoke;
+}
+
+
+.no_border {
+  border: none;
+  }
+
+
+table {
+  border-collapse: collapse;
+}
+
+.customer_list,.item_list, .customer_registration {
+  text-decoration: underline;
+  background-color: white;
+}
+
+

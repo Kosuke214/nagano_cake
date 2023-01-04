@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-10 mx-auto">
-    <h2>商品編集</h2>
+    <h2><span>商品編集</span></h2>
     <div class="container">
       <div class="col-sm-12 col-md-10 col-lg-10 px-4 mx-auto ">
         <% #↓namespaceで分けているため、adminはurlを指定 %>
@@ -38,7 +38,7 @@
           <div class="row">
             <label class="col-4">ジャンル</label>
             <div class="col-7">
-              <%= f.select :genre_id, [['--選択してくだいさい--',1],['ケーキ',2]], :class => "form-control genre-form" %>
+              <%= f.select :genre_id, [['--選択してくだいさい--', 0],['ケーキ', 1],['プリン', 2],['焼き菓子', 3]], :class => "form-control genre-form" %>
             </div>
           </div>
         </div>

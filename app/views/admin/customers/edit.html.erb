@@ -1,15 +1,15 @@
 <div class="container">
   <div class="col-10 mx-auto">
-    <h2><% @customer.first_name %><% @customer.last_name %>さんの会員情報編集</h2>
+    <h2><span> <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集 </span></h2>
     <div class="container">
       <div class="col-sm-12 col-md-10 col-lg-10 px-4 mx-auto ">
         <% #↓namespaceで分けているため、adminはurlを指定 %>
-        <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+        <%= form_with model: @customer, url: admin_customer_path do |f| %>
 
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">会員ID</label>
+            <label class="col-3">会員ID</label>
             <div class="col-7">
               <%= @customer.id %>
             </div>
@@ -18,56 +18,62 @@
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">氏名</label>
-            <div class="col-7">
-              <%= f.text_field :first_name, :class => "form-control name-form" %>
-              <%= f.text_field :last_name, :class => "form-control name-form" %>
+            <label class="col-3">氏名</label>
+            <div class="col-3">
+              <%= f.text_field :last_name, :class => "form-control name-form" ,value: @customer.last_name %>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+              <%= f.text_field :first_name, :class => "form-control name-form" ,value: @customer.first_name %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">フリガナ</label>
-            <div class="col-7">
-              <%= f.text_field :first_name_kana, :class => "form-control name_kana-form" %>
-              <%= f.text_field :last_name_kana, :class => "form-control name_kana-form" %>
+            <label class="col-3">フリガナ</label>
+            <div class="col-3">
+              <%= f.text_field :last_name_kana, :class => "form-control name_kana-form" ,value: @customer.last_name_kana %>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+              <%= f.text_field :first_name_kana, :class => "form-control name_kana-form" ,value: @customer.first_name_kana %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">郵便番号</label>
-            <div class="col-7">
-              <%= f.text_field :postal_code, :class => "form-control postal_code-form" %>
+            <label class="col-3">郵便番号</label>
+            <div class="col-3">
+              <%= f.text_field :postal_code, :class => "form-control postal_code-form" ,value: @customer.postal_code %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">住所</label>
+            <label class="col-3">住所</label>
             <div class="col-7">
-              <%= f.text_field :address, :class => "form-control address-form" %>
+              <%= f.text_field :customer_address, :class => "form-control address-form" ,value: @customer.customer_address %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">電話番号</label>
-            <div class="col-7">
-              <%= f.text_field :telephone_number, :class => "form-control telephone_number-form" %>
+            <label class="col-3">電話番号</label>
+            <div class="col-3">
+              <%= f.text_field :telephone_number, :class => "form-control telephone_number-form" ,value: @customer.telephone_number %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">メールアドレス</label>
-            <div class="col-7">
-              <%= f.text_field :email, :class => "form-control email-form" %>
+            <label class="col-3">メールアドレス</label>
+            <div class="col-3">
+              <%= f.text_field :email, :class => "form-control email-form" ,value: @customer.email %>
             </div>
           </div>
         </div>
@@ -75,24 +81,30 @@
 
         <div class="form-group">
           <div class="row">
-            <label class="col-4">会員ステータス</label>
+            <label class="col-3">会員ステータス</label>
             <div class="col-7">
               <div>
-                <%= f.radio_button :is_deleted, true, checked: true %>
+                <%= f.radio_button :is_deleted, false, checked: true %>
                 <%= f.label :done, '有効', value: false %>
 
-                <%= f.radio_button :is_deleted, false %>
+                <%= f.radio_button :is_deleted, true %>
                 <%= f.label :done, '退会', value: false %>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-3 mx-auto">
-            <%= f.submit "変更を保存" ,class:'btn btn-success' %>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-3"></label>
+            <div class="col-7">
+              <%= f.submit "変更を保存" ,class:'btn btn-success' %>
+            </div>
           </div>
         </div>
+
+
+
 
         <% end %>
 

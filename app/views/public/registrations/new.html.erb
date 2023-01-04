@@ -3,7 +3,7 @@
 
   <div class="container">
     <div class="col-10 mx-auto">
-      <h2>新規会員登録</h2>
+      <h2><span>新規会員登録</span></h2>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
           <label class="col-3">住所</label>
           <div class="col-1"></div>
           <div class="col-7">
-            <%= f.text_field :address, value: "", placeholder:"東京都渋谷区代々木神薗町0-0", size: 55 %>
+            <%= f.text_field :customer_address, placeholder:"東京都渋谷区代々木神薗町0-0", size: 55 %>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@
 
   <div class="container">
     <div class="col-10 mx-auto">
-      <h2>既に登録済みの方</h2>
+      <h2><span>既に登録済みの方</span></h2>
       <p class="col-5 text-center"><%= link_to 'こちら',  new_customer_session_path %>からログインしてください。</p>
     </div>
   </div>

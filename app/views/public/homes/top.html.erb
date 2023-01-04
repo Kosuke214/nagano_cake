@@ -32,23 +32,37 @@
           会員でない方も商品の閲覧はできますが、<br>
           購入には会員登録が必要となります。<br>
         </p>
-
       </div>
-      <div class="row align-items-center">
-        <h2>新着商品</h2>
-        <div class="col">
+    </div>
 
+    </div>
+    <div class="row">
+      <h2>新着商品</h2>
+    </div>
+    
+      <% @items.each do |item| %>
+      <div class = "container">
+         
+        <div class = "row">
+          <div class="col">
+            <%= item.image %>
+          </div>
         </div>
-        <div class="col">
-
+        
+        <div class = "row">
+          <div class="col">
+            <%= item.name %>
+          </div>
         </div>
-        <div class="col">
-
+        
+        <div class = "row">
+          <div class="col">
+            <%= item.price %>
+          </div>
         </div>
-        <div class="col">
-
-        </div>
+        
       </div>
+      
       <div class="row justify-content-end">
         <div class="col-5">
           <%= link_to "全ての商品を見る >", "/items" %>
