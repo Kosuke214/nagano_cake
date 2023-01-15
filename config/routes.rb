@@ -20,10 +20,15 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
-    resources :items, only: [:index, :show]
 
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
-    resources :orders, only: [:new, :comfirm, :complete, :create, :index, :show]
+    delete "cart_items_destroy_all" => "cart_items#destroy_all"
+    post "orders/confirm" => "orders#confirm"
+    get "orders/confirm" => "orders#confirm"
+    get "orders/complete" => "orders#complete"
+
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+    resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 

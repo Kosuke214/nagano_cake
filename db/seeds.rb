@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# coding: utf-8
+
+Genre.create(:name => 'ケーキ', :created_at => '2023-01-06', :updated_at => '2023-01-06')
+Genre.create(:name => 'プリン', :created_at => '2023-01-06', :updated_at => '2023-01-06')
+Genre.create(:name => '焼き菓子', :created_at => '2023-01-06', :updated_at => '2023-01-06')
+Genre.create(:name => 'キャンディ', :created_at => '2023-01-06', :updated_at => '2023-01-06')

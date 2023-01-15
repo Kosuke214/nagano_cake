@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/176bf841c5.js" crossorigin="anonymous"></script>
@@ -64,7 +66,7 @@
                         <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
                       <% end %>
 
-                      <%= link_to "/customers/cart_items" do %>
+                      <%= link_to "/cart_items" do %>
                         <button type="button" class="btn btn-outline-secondary"> カート </button>
                       <% end %>
 
