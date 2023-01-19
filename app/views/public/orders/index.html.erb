@@ -23,25 +23,26 @@
           <% @order.each do |order| %>
             <tr>
               <td>
-                <%= order.created_at %>
+                <%= order.created_at.strftime('%Y/%m/%d') %>
               </td>
               <td>
-                <%= "〒" + order.postal_code %><br>
-                <%= order.address %><br>
-                <%= order.name %>
+                <%= "〒" + order.shipping_postalcode %><br>
+                <%= order.shipping_address %><br>
+                <%= order.shipping_name %>
               </td>
               <td>
-                <% @order_items.each do |item| %>
-                  <%= item %>
+                <%# @order_items.each do |item| %>
+                <% order.order_detail.each do |order_details| %>
+                  <%= order_details.item.name %><br>
                 <% end %>
               </td>
 
               <td>
-                <%= order.amount %>
+                <%= order.amount.to_s(:delimited) %>円
               </td>
 
               <td>
-                <%= order.order_status %>
+                <%= order.order_status_i18n %>
               </td>
 
               <td>

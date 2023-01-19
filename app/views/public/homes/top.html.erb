@@ -22,14 +22,18 @@
 
     </div>
     <div class="col-8">
-      <div class="row">
-        <p>
-          ようこそ、ながのCAKEへ！<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員でない方も商品の閲覧はできますが、<br>
-          購入には会員登録が必要となります。<br>
-        </p>
+
+      <div class="main-image">
+        <div class="bg-on-dark">
+          <p class="white">
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要となります。<br>
+          </p>
+        </div>
       </div>
+
 
       <div class="row">
         <h2>新着商品</h2>
@@ -48,7 +52,7 @@
             <div class = "row"><%= item.name %></div>
             <div class = "row">¥<%= item.price.to_s(:delimited) %></div>
           </div>
-        <% end %>
+          <% end %>
         </div>
       </div>
 

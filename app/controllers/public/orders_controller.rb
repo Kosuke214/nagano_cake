@@ -59,10 +59,17 @@ class Public::OrdersController < ApplicationController
 
   def index
     @order = Order.all
-    @order_items = OrderDetail.find(params[:order_detail][:item_id]).name
+    #@order_items = OrderDetail.find(params[:item_id])
   end
 
   def show
+    @order = Order.find(params[:id])
+
+    @total = 0
+    @order.order_detail.each do |order_details|
+      @total += order_details.subtotal
+    end
+
   end
 
 
