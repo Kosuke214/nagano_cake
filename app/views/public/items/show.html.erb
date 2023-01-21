@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row col-sm-12">
     <div class="col-3">
-      <table class="border">
+      <table class="border w-100">
         <thead>
           <tr align="center">
             <th>ジャンル検索</th>
@@ -47,13 +47,14 @@
                 </div>
               </div>
 
-              <div class="item-group">
+              <div class="item-group mt-5">
                 <div class="row">
                   <%= form_with model: @cart_item, url: cart_items_path do |f| %>
                     <%= f.hidden_field :customer_id, :value => current_customer.id %>
                     <%= f.hidden_field :item_id, :value => @item.id %>
+
                     <%= f.select :amount, *[1..10], { prompt: '個数選択' }, :class => "item-amount" %>
-                    <%= f.submit " カートに入れる " ,class:'btn btn-success' %>
+                    <%= f.submit " カートに入れる " ,class:'btn btn-success ml-5' %>
                   <% end %>
                 </div>
               </div>

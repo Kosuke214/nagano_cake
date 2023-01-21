@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,14 +16,16 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar">
         <div class="container">
           <div class="row col-sm-12">
 
             <div class="col-5 my-auto">
               <div class="row">
-                <div class="col-4 my-auto">
-                  <a class="navbar-brand" href="/"><h2> LOGO </h2></a>
+                <div class="col-4 logo-box">
+                  <a class="navbar-logo" href="/">
+                    <i>Nagano<br>cake</i>
+                  </a>
                 </div>
                 <div class="col-8 my-auto">
                   <% if customer_signed_in? %>
@@ -38,57 +41,57 @@
                   <ul class="btn-group">
                     <% if admin_signed_in? %>
                       <%= link_to "/items" do %>
-                        <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
+                        <button type="button" class="btn btn-light"> 商品一覧 </button>
                       <% end %>
 
                       <%= link_to "/admin/customers" do %>
-                        <button type="button" class="btn btn-outline-secondary"> 会員一覧 </button>
+                        <button type="button" class="btn btn-light"> 会員一覧 </button>
                       <% end %>
 
                       <%= link_to "/admin/orders/:id" do %>
-                        <button type="button" class="btn btn-outline-secondary"> 注文履歴一覧 </button>
+                        <button type="button" class="btn btn-light"> 注文履歴一覧 </button>
                       <% end %>
 
                       <%= link_to "/admin/genres" do %>
-                        <button type="button" class="btn btn-outline-secondary"> ジャンル一覧 </button>
+                        <button type="button" class="btn btn-light"> ジャンル一覧 </button>
                       <% end %>
 
                       <%= link_to "/admin/sign_out", method: :delete do %>
-                        <button type="button" class="btn btn-outline-secondary"> ログアウト </button>
+                        <button type="button" class="btn btn-light"> ログアウト </button>
                       <% end %>
 
                     <% elsif customer_signed_in? %>
                       <%= link_to "/customers/my_page" do %>
-                        <button type="button" class="btn btn-outline-secondary"> マイページ </button>
+                        <button type="button" class="btn btn-light"> マイページ </button>
                       <% end %>
 
                       <%= link_to "/items" do %>
-                        <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
+                        <button type="button" class="btn btn-light"> 商品一覧 </button>
                       <% end %>
 
                       <%= link_to "/cart_items" do %>
-                        <button type="button" class="btn btn-outline-secondary"> カート </button>
+                        <button type="button" class="btn btn-light"> カート </button>
                       <% end %>
 
                       <%= link_to "/customers/sign_out", method: :delete do %>
-                        <button type="button" class="btn btn-outline-secondary" > ログアウト </button>
+                        <button type="button" class="btn btn-light" > ログアウト </button>
                       <% end %>
 
                     <% else %>
                       <%= link_to "/about" do %>
-                        <button type="button" class="btn btn-outline-secondary"> About </button>
+                        <button type="button" class="btn btn-light"> About </button>
                       <% end %>
 
                       <%= link_to "/items" do %>
-                        <button type="button" class="btn btn-outline-secondary"> 商品一覧 </button>
+                        <button type="button" class="btn btn-light"> 商品一覧 </button>
                       <% end %>
 
                       <%= link_to "/customers/sign_up" do %>
-                        <button type="button" class="btn btn-outline-secondary"> 新規登録 </button>
+                        <button type="button" class="btn btn-light"> 新規登録 </button>
                       <% end %>
 
                       <%= link_to "/customers/sign_in" do %>
-                        <button type="button" class="btn btn-outline-secondary"> ログイン </button>
+                        <button type="button" class="btn btn-light"> ログイン </button>
                       <% end %>
 
                     <% end %>
@@ -97,10 +100,11 @@
               </div>
 
               <div class="row justify-content-end">
-                <div class="input-group col-5">
-                  <input type="text" class="form-control" placeholder="キーワードを入力">
-                  <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
-                </div>
+                <form class="form-box">
+                  <input class="form-input" type="search" placeholder="Search">
+                  <button class="form-button" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
               </div>
 
             </div>
@@ -115,13 +119,7 @@
       <%= yield %>
     </main>
     <footer>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="mx-auto">
-            <p>CopyRigth Infratop.inc</p>
-          </div>
-        </div>
-      </div>
+
     </footer>
   </body>
 </html>

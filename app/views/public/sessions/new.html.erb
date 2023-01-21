@@ -3,13 +3,13 @@
 
   <div class="container">
     <div class="col-10 mx-auto">
-      <h2><span>ログイン</span></h2>
+      <h4>ログイン</h4>
     </div>
   </div>
 
   <div class="container">
     <div class="col-9 mx-auto">
-      <p><span>会員の方はこちらからログイン</span></p>
+      <p>会員の方はこちらからログイン</p>
 
       <div class="col-sm-11 mx-auto">
 
@@ -17,7 +17,7 @@
           <div class="row">
             <label class="col-4">メールアドレス</label>
             <div class="col-8">
-              <%= f.email_field :email, placeholder:"sample@example.com", size: 40 %>
+              <%= f.text_field :email, placeholder:"sample@example.com", size: 40 %>
             </div>
           </div>
         </div>
@@ -40,8 +40,11 @@
           </div>
         </div>
       </div>
-      <p><span>会員登録がお済みでない方</span></p>
-      <p class="text-center"><span class="customer_registration"><%= link_to 'こちら',  new_customer_session_path %></span>から新規登録を行ってください。</p>
+      <p>会員登録がお済みでない方</p>
+      <div class = "col-7">
+        <p class="text-center"><span class="customer_registration"><%= link_to 'こちら',  new_customer_session_path %></span>から新規登録を行ってください。</p>
+      </div>
+
 
     </div>
 

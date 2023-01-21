@@ -1,76 +1,69 @@
 <div class="container">
   <div class="col-10 mx-auto">
-    <h2><span>マイページ</span></h2>
+    <h4 class="mb-4 ml-5">マイページ</h4>
   </div>
-</div>
 
-    <div class="container">
-      <div class="col-sm-11 px-0 mx-auto ">
-        <div class="row">
-          <h4 class="col-2">登録情報</h4>
-          <div class="col-3">
-            <%= link_to "/customers/infomation/edit" do %>
-              <button type="button" class="btn btn-success"> 編集する </button>
-            <% end %>
-          </div>
-        </div>
+  <div class="col-sm-11 px-0 mx-auto">
+    <div class="row mt-10">
+      <h5 class="col-2"><strong>登録情報</strong></h5>
+      <div class="col-3">
+        <%= link_to "/customers/infomation/edit" do %>
+          <button type="button" class="btn btn-success"> 編集する </button>
+        <% end %>
+      </div>
+    </div>
 
+    
+    <table class="border col-10">
+      <%# @customer.each do |customer| %>
+        <tr>
+          <th class="col-3 border">氏名</th>
+          <td class="col-7 border"><%= @customer.last_name %>　<%= @customer.first_name %></td>
+        </tr>
 
-        <table class="col-10">
-          <%# @customer.each do |customer| %>
-            <tr>
-              <th class="col-3 border">氏名</th>
-              <td class="col-7 border"><%= @customer.last_name %>　<%= @customer.first_name %></td>
-            </tr>
+        <tr>
+          <th class="col-3 border">カナ</th>
+          <td class="col-7 border"><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+        </tr>
 
-            <tr>
-              <th class="col-3 border">カナ</th>
-              <td class="col-7 border"><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
-            </tr>
+        <tr>
+          <th class="col-3 border">郵便番号</th>
+          <td class="col-7 border"><%= @customer.postal_code %></td>
+        </tr>
 
-            <tr>
-              <th class="col-3 border">郵便番号</th>
-              <td class="col-7 border"><%= @customer.postal_code %></td>
-            </tr>
+        <tr>
+          <th class="col-3 border">住所</th>
+          <td class="col-7 border"><%= @customer.customer_address %></td>
+        </tr>
 
-            <tr>
-              <th class="col-3 border">住所</th>
-              <td class="col-7 border"><%= @customer.customer_address %></td>
-            </tr>
+        <tr>
+          <th class="col-3 border">電話番号</th>
+          <td class="col-7 border"><%= @customer.telephone_number %></td>
+        </tr>
 
-            <tr>
-              <th class="col-3 border">電話番号</th>
-              <td class="col-7 border"><%= @customer.telephone_number %></td>
-            </tr>
+        <tr>
+          <th class="col-3 border">メールアドレス</th>
+          <td class="col-7 border"><%= @customer.email %></td>
+        </tr>
+      <%# end %>
 
-            <tr>
-              <th class="col-3 border">メールアドレス</th>
-              <td class="col-7 border"><%= @customer.email %></td>
-            </tr>
-          <%# end %>
+    </table>
 
-        </table>
+    <div class="row mt-3">
+      <h5 class="col-2"><strong>配送先</strong></h5>
+      <div class="col-3">
+        <%= link_to addresses_path do %>
+          <button type="button" class="btn btn-primary"> 一覧を見る </button>
+        <% end %>
+      </div>
+    </div>
 
-        <div class="row">
-          <h4 class="col-2">配送先</h4>
-          <div class="col-3">
-            <%= link_to addresses_path do %>
-              <button type="button" class="btn btn-primary"> 一覧を見る </button>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="row">
-          <h4 class="col-2">注文履歴</h4>
-          <div class="col-3">
-            <%= link_to orders_path do %>
-              <button type="button" class="btn btn-primary"> 一覧を見る </button>
-            <% end %>
-          </div>
-        </div>
-
-
-
+    <div class="row mt-3">
+      <h5 class="col-2"><strong>注文履歴</strong></h5>
+      <div class="col-3">
+        <%= link_to orders_path do %>
+          <button type="button" class="btn btn-primary"> 一覧を見る </button>
+        <% end %>
       </div>
     </div>
 
