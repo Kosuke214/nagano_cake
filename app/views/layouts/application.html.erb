@@ -18,7 +18,7 @@
     <header>
       <nav class="navbar">
         <div class="container">
-          <div class="row col-sm-12">
+          <div class="row col-12">
 
             <div class="col-5 my-auto">
               <div class="row">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-8 my-auto">
                   <% if customer_signed_in? %>
-                  <p class="my-auto float-right navbar-brand">ようこそ、<%= current_customer.last_name %>さん！</p>
+                    <p class="my-auto float-right navbar-brand">ようこそ、<%= current_customer.last_name %>さん！</p>
                   <% end %>
                 </div>
 
@@ -40,7 +40,7 @@
                 <div class="navbar-nav">
                   <ul class="btn-group">
                     <% if admin_signed_in? %>
-                      <%= link_to "/items" do %>
+                      <%= link_to "/admin/items" do %>
                         <button type="button" class="btn btn-light"> 商品一覧 </button>
                       <% end %>
 
@@ -48,7 +48,7 @@
                         <button type="button" class="btn btn-light"> 会員一覧 </button>
                       <% end %>
 
-                      <%= link_to "/admin/orders/:id" do %>
+                      <%= link_to "/admin" do %>
                         <button type="button" class="btn btn-light"> 注文履歴一覧 </button>
                       <% end %>
 

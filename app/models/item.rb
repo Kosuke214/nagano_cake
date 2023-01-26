@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :cart_item
   has_many :order_detail
   has_many :orders, through: :order_details
-  #belongs_to :genre
+  belongs_to :genre
 
   def get_image
     unless image.attached?

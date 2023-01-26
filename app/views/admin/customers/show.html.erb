@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-10 mx-auto">
-    <h2><span> <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細 </span></h2>
+    <h4 class="mb-5"><span class="smoke">　<%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細　</span></h4>
 
         <%#<div class="picture"> %>
           <%# <div class="row"> %>
@@ -88,8 +88,8 @@
       <div class="row">
         <label class="col-3"></label>
           <div class="col-7">
-            <%= link_to " 編集する ", edit_admin_customer_path, class: 'btn btn-success' %>
-            <%= link_to " 注文履歴一覧を見る ", "/orders", class: 'btn btn-primary' %>
+            <%= link_to " 編集する ", edit_admin_customer_path, class: 'btn btn-success mr-5' %>
+            <%= link_to " 注文履歴一覧を見る ", "/orders", class: 'btn btn-primary ml-5' %>
           </div>
 
       </div>

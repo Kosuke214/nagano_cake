@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="col-10 mx-auto">
-    <h2><span> <%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集 </span></h2>
+  <div class="col-11 mx-auto">
+    <h4 class="mb-5"><span class="smoke">　<%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集　</span></h4>
     <div class="container">
-      <div class="col-sm-12 col-md-10 col-lg-10 px-4 mx-auto ">
+      <div class="col-11 px-4 mx-auto ">
         <% #↓namespaceで分けているため、adminはurlを指定 %>
         <%= form_with model: @customer, url: admin_customer_path do |f| %>
 
@@ -54,7 +54,7 @@
         <div class="form-group">
           <div class="row">
             <label class="col-3">住所</label>
-            <div class="col-7">
+            <div class="col-9">
               <%= f.text_field :customer_address, :class => "form-control address-form" ,value: @customer.customer_address %>
             </div>
           </div>

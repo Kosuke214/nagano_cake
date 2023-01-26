@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-11 mx-auto">
     <div class="row">
-      <h4>ショッピングカート</h4>
+      <h4><span class="smoke">　ショッピングカート　</span></h4>
       <div class="ml-auto">
         <%= link_to " カートを空にする ", cart_items_destroy_all_path, method: :delete, class: "btn btn-danger" %>
       </div>
@@ -11,37 +11,37 @@
 
     <div class="row">
 
-      <table class="border w-100 mb-3">
+      <table class="w-100 mb-3">
         <thead>
-          <tr>
-            <th>商品名</th>
-            <th>単価（税込）</th>
-            <th>数量</th>
-            <th>小計</th>
-            <th></th>
+          <tr class="smoke">
+            <th class="add_border">商品名</th>
+            <th class="add_border">単価（税込）</th>
+            <th class="add_border">数量</th>
+            <th class="add_border">小計</th>
+            <th class="add_border"></th>
           </tr>
         </thead>
 
         <tbody>
           <% @cart_items.each do |cart_item| %>
             <tr>
-              <td>
+              <td class="add_border">
                 <%= image_tag cart_item.item.get_image %>
                 <%= cart_item.item.name %>
               </td>
-              <td>
+              <td class="add_border">
                 <%= cart_item.item.with_tax_price.to_s(:delimited) %>
               </td>
-              <td align="center">
+              <td align="center" class="add_border">
                 <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
                   <%= f.select :amount, *[1..10], :class => "item-amount" %>
                   <%= f.submit " 変更 " ,class:'btn btn-success' %>
                 <% end %>
               </td>
-              <td>
+              <td class="add_border">
                 <%= cart_item.subtotal.to_s(:delimited) %>
               </td>
-              <td align="center">
+              <td align="center" class="add_border">
                 <%= link_to " 削除する ", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %>
               </td>
             </tr>
@@ -59,8 +59,8 @@
 
           <table class="col-4 ml-auto border">
             <tr>
-              <th class="col-4">合計金額</th>
-              <td class="col-3">
+              <th class="col-4 add_border smoke">合計金額</th>
+              <td class="col-3 add_border">
                 <% @cart_items.each do |cart_item| %>
                   <% @total += cart_item.subtotal %>
                 <% end %>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="col-3 mx-auto">
-        <%= link_to " 情報入力に進む ", new_order_path, class: "btn btn-success" %>
+        <%= link_to_if(@cart_items.present?, " 情報入力に進む ", new_order_path, class: "btn btn-success") {}%>
       </div>
 
 

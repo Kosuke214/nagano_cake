@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-11 mx-auto">
     <div class="row mx-auto">
-      <h4>注文履歴一覧</h4>
+      <h4 class="ml-5"><span class="smoke">　注文履歴一覧　</span></h4>
     </div>
 
 
@@ -9,43 +9,43 @@
 
       <table class="border w-100">
         <thead>
-          <tr>
-            <th>注文日</th>
-            <th>配送先</th>
-            <th>注文商品</th>
-            <th>支払金額</th>
-            <th>ステータス</th>
-            <th>注文詳細</th>
+          <tr class="smoke">
+            <th class="add_border">注文日</th>
+            <th class="add_border">配送先</th>
+            <th class="add_border">注文商品</th>
+            <th class="add_border">支払金額</th>
+            <th class="add_border">ステータス</th>
+            <th class="add_border">注文詳細</th>
           </tr>
         </thead>
 
         <tbody>
           <% @order.each do |order| %>
             <tr>
-              <td>
+              <td class="add_border">
                 <%= order.created_at.strftime('%Y/%m/%d') %>
               </td>
-              <td>
+              <td class="add_border">
                 <%= "〒" + order.shipping_postalcode %><br>
                 <%= order.shipping_address %><br>
                 <%= order.shipping_name %>
               </td>
-              <td>
+              <td class="add_border">
                 <%# @order_items.each do |item| %>
                 <% order.order_detail.each do |order_details| %>
                   <%= order_details.item.name %><br>
                 <% end %>
               </td>
 
-              <td>
+              <td class="add_border">
                 <%= order.amount.to_s(:delimited) %>円
               </td>
 
-              <td>
+              <td class="add_border">
                 <%= order.order_status_i18n %>
               </td>
 
-              <td align="center">
+              <td align="center" class="add_border">
                 <%= link_to " 表示する ", order_path(order.id), class: "btn btn-primary" %>
               </td>
             </tr>

@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all.page(params[:page])
+    @items = Item.all.page(params[:page]).per(10)
     #@pages = @items.page(params[:page])
     #@genre = {1 => "ケーキ", 2 => "プリン", 3 => "焼き菓子", 4 => "キャンディ"}
     #@page = Article.all.page(params[:page]
@@ -13,6 +13,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
+    redirect_to admin_item_path(@item.id)
   end
 
   def show
