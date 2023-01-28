@@ -43,7 +43,7 @@
 
               <div class="item-group">
                 <div class="row align-items-end">
-                  <h4 class="base">¥ <%= (@item.price*1.1).ceil.to_s(:delimited) %> </h4>（税込）
+                  <h4 class="base">¥ <%= (@item.price*1.1).floor.to_s(:delimited) %> </h4>（税込）
                 </div>
               </div>
 
